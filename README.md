@@ -22,6 +22,8 @@
 ## 設計書
 ### ER図鑑
 ![futsal_diary Diagram](https://user-images.githubusercontent.com/81537553/171998446-2de7102f-9f2b-4753-8f67-963ff48148fd.jpg)
+### アプリケーション詳細設計
+[futsal_diary アプリケーション詳細設計.xlsx - ルーティング.pdf](https://github.com/ken-a11y/dmmwebcamp.pf.futsal_diary/files/8837662/futsal_diary.xlsx.-.pdf)
 
 ## 開発環境
 - OS：Linux(CentOS)
