@@ -23,7 +23,7 @@
 ### ER図鑑
 ![futsal_diary Diagram](https://user-images.githubusercontent.com/81537553/171998446-2de7102f-9f2b-4753-8f67-963ff48148fd.jpg)
 ### アプリケーション詳細設計
-![futsal_diary.xlsx.-.pdf](https://github.com/ken-a11y/dmmwebcamp.pf.futsal_diary/files/8837670/futsal_diary.xlsx.-.pdf)
+![futsal_diary-アプリケーション詳細設計 xlsx-ルーティング](https://user-images.githubusercontent.com/81537553/171999732-538a91ef-ef09-4fd9-bdc1-c5ec330fc852.jpg)
 
 
 ## 開発環境
