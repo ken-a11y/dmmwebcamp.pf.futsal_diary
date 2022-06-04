@@ -20,6 +20,8 @@
 * フットサルの戦術を確認したいとき
 
 ## 設計書
+### ER図鑑
+![futsal_diary Diagram](https://user-images.githubusercontent.com/81537553/171998446-2de7102f-9f2b-4753-8f67-963ff48148fd.jpg)
 
 ## 開発環境
 - OS：Linux(CentOS)
