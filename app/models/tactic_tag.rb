@@ -1,0 +1,2 @@
+class TacticTag < ApplicationRecord
+end
