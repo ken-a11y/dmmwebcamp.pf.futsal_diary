@@ -23,7 +23,8 @@ Rails.application.routes.draw do
       resources :diary_comments, only: [:create,:destroy]
       resource :diary_favorites, only: [:create,:destroy]
     end
-    resources :tactics, only: [:index,:show]
+    resources :tactics, only: [:index]
+    get 'tactic', to: 'tactics#show'
   end
 
   namespace :admin do

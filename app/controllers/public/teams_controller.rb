@@ -13,4 +13,5 @@ class Public::TeamsController < ApplicationController
   
   def update
   end
+  
 end

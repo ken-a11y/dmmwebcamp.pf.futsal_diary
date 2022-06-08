@@ -1,0 +1,5 @@
+<% tactics = data[params[:tactics_name]] %>
+<h1>戦術詳細ページ</h1>
+<h2><%= params[:tactics_name] %></h2>
+<p><%= image_tag tactics[:image_url] %></p>
+<p><%== tactics[:description].gsub(/\n/, "<br>") %></p>

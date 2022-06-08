@@ -1,0 +1,5 @@
+<% data.each do |k, v| %>
+  <%= link_to tactic_path(tactics_name: k) do %>
+    <%= image_tag v[:image_url] %>
+  <% end %>
+<% end %>
