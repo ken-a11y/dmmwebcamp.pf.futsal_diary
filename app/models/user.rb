@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :diaries, dependent: :destroy
   has_many :diary_comments, dependent: :destroy
   has_many :diary_favorites, dependent: :destroy
-  has_many :team_users, dependent: :destroy
+  #has_many :team_users, dependent: :destroy
+  belongs_to :team
 end

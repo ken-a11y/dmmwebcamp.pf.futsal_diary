@@ -10,49 +10,50 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li>
-            <%= link_to team_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-users"></i> Team
+            <%= link_to class: 'nav-link text-light' do %>
+              <h3>Team</h3>
             <% end %>
           </li>
             <li>
             <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
-              <i class="fas fa-home"></i> My page
+              <h3>My page</h3>
             <% end %>
           </li>
           <li>
             <%= link_to diaries_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-book-open"></i> diaries
+              <h3>diaries</h3>
             <% end %>
           </li>
           <li>
             <%= link_to tactics_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-book-open"></i> Tactics
+              <h3>Tactics</h3>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
-              <i class="fas fa-sign-out-alt"></i> Log out
+              <h3>log out</h3>
             <% end %>
           </li>
+
         <% else %>
           <li>
             <%= link_to root_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-home"></i> Home
+              <i class="fas fa-link"></i> futsal_diaryについて
             <% end %>
           </li>
           <li>
-            <%= link_to about_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-link"></i> About
+            <%= link_to new_team_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-home"></i> チーム登録
             <% end %>
           </li>
           <li>
             <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-user-plus"></i> Sign up
+              <i class="fas fa-user-plus"></i> ユーザー登録
             <% end %>
           </li>
           <li>
             <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-sign-in-alt"></i> Log in
+              <i class="fas fa-sign-in-alt"></i> ユーザーログイン
             <% end %>
           </li>
         <% end %>

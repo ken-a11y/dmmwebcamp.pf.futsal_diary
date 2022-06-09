@@ -1,9 +1,8 @@
 class Team < ApplicationRecord
   has_one_attached :team_image
-  belongs_to :owner, class_name: 'User'
-  has_many :team_users, dependent: :destroy
-  has_many :users, through: :team_users, source: :user
-  
+  belongs_to :owner, optional: true, class_name: 'User'
+  has_many :users
+
   def get_team_image
     unless team_image.attached?
       file_path = Rails.root.join('app/assets/images/no_img.jpg')

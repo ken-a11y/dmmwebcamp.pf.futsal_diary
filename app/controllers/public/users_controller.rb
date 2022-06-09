@@ -17,6 +17,12 @@ class Public::UsersController < ApplicationController
     end
   end
   
+  def create
+  end
+  
+  def destroy
+  end
+  
   def quit
   end
   

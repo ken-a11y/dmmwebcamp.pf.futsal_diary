@@ -15,10 +15,8 @@ Rails.application.routes.draw do
     patch '/users/out' => 'users#out'
     get "search" => "searches#search"
 
-    resources :users, only: [:show,:edit,:update]
-    resources :teams, only: [:show,:new,:edit,:create,:update] do
-      resources :team_users, only: [:create,:destroy]
-    end
+    resources :users, only: [:show,:edit,:update, :create, :destroy, :quit, :out]
+    resources :teams, only: [:show,:new,:edit,:create,:update]
     resources :diaries do
       resources :diary_comments, only: [:create,:destroy]
       resource :diary_favorites, only: [:create,:destroy]
