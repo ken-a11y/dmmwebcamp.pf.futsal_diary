@@ -1,5 +1,34 @@
+<table class="table">
+  <tr>
+    <th>name</th>
+    <th><%= @user.name %></th>
+  </tr>
+  <tr>
+    <th>age</th>
+    <th><%= @user.age %></th>
+  </tr>
+  <tr>
+    <th>number</th>
+    <th><%= @user.number %></th>
+  </tr>
+  <tr>
+    <th>position</th>
+    <th><%= @user.position %></th>
+  </tr>
+  <tr>
+    <th>speed_rate</th>
+    <th><%= @user.speed_rate %></th>
+  </tr>
+  <tr>
+    <th>power_rate</th>
+    <th><%= @user.power_rate %></th>
+  </tr>
+  <tr>
+    <th>tactics_rate</th>
+    <th><%= @user.tactics_rate %></th>
+  </tr>
+</table>
 <div>
-  <h3><%= @user.email %></h3>
   <% if @user.id == current_user.id %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>

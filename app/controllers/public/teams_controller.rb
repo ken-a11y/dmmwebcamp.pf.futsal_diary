@@ -1,4 +1,7 @@
 class Public::TeamsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update]
+
   def show
     @team = Team.find(params[:id])
   end
@@ -32,6 +35,13 @@ class Public::TeamsController < ApplicationController
 
   def team_params
     params.require(:team).permit(:team_name, :introduction, :team_image)
+  end
+
+  def ensure_correct_user
+    @group = Group.find(params[:id])
+    unless @group.owner_id == current_user.id
+      redirect_to groups_path
+    end
   end
 
 end

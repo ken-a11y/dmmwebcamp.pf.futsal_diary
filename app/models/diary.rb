@@ -6,6 +6,11 @@ class Diary < ApplicationRecord
   has_many :tactics_tags, dependent: :destroy
   has_many :tags, through: :tactics_tags
   
+  validates :place, presence: true
+  validates :result, presence: true
+  validates :good, presence: true, length: {maximum: 200}
+  validates :bad, presence: true, length: {maximum: 200}
+  
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

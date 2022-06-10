@@ -9,7 +9,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:team_id, :name, :age, :number, :position, :speed_rate, :power_rate, :tactics_rate, :is_deleted])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:team_id, :name, :age, :number, :position, :speed_rate, :power_rate, :tactics_rate])
   end
 
 end
