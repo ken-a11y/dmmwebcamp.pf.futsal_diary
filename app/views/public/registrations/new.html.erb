@@ -47,17 +47,14 @@
   </div>
 
   <% if @user.id === nil %>
+    <%= f.label :speed_rate %>
     <div class="form-group" id="star">
-      <%= f.label :speed_rate %>
-      <%= f.hidden_field :speed_rate, id: :review_star, class:'form-control' %>
     </div>
-    <div class="form-group" id="star">
-      <%= f.label :power_rate %>
-      <%= f.hidden_field :power_rate, id: :review_star, class:'form-control' %>
+    <%= f.label :power_rate %>
+    <div class="form-group" id="star2">
     </div>
-    <div class="form-group" id="star">
-      <%= f.label :tactics_rate %>
-      <%= f.hidden_field :tactics_rate, id: :review_star, class:'form-control' %>
+    <%= f.label :tactics_rate %>
+    <div class="form-group" id="star3">
     </div>
 
     <script>
@@ -65,10 +62,28 @@
       $('#star').empty();
       $('#star').raty({
         size     : 36,
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf: '<%= asset_path('star-half.png') %>',
-        scoreName: ‘user[rate]',
+        starOff:  '<%= asset_path("star-off.png") %>',
+        starOn : '<%= asset_path("star-on.png") %>',
+        starHalf: '<%= asset_path("star-half.png") %>',
+        scoreName: 'user[speed_rate]',
+        half: true,
+      });
+      $('#star2').empty();
+      $('#star2').raty({
+        size     : 36,
+        starOff:  '<%= asset_path("star-off.png") %>',
+        starOn : '<%= asset_path("star-on.png") %>',
+        starHalf: '<%= asset_path("star-half.png") %>',
+        scoreName: 'user[power_rate]',
+        half: true,
+      });
+      $('#star3').empty();
+      $('#star3').raty({
+        size     : 36,
+        starOff:  '<%= asset_path("star-off.png") %>',
+        starOn : '<%= asset_path("star-on.png") %>',
+        starHalf: '<%= asset_path("star-half.png") %>',
+        scoreName: 'user[tactics_rate]',
         half: true,
       });
     })

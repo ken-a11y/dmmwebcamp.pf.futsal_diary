@@ -8,7 +8,7 @@ class Public::DiariesController < ApplicationController
 
   def show
     @diary = Diary.find(params[:id])
-    @diary_comment = Diaryomment.new
+    @diary_comment = DiaryComment.new
   end
 
   def edit
@@ -16,13 +16,20 @@ class Public::DiariesController < ApplicationController
 
   def new
     @diary = Diary.new
+    @tags = Tag.all
   end
 
   def create
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
-    @diary.save
-    redirect_to diaries_path
+    tag_list = params[:diary][:tag_name].split(',')
+    if @diary.save
+      @diary.save_tags(tag_list)
+      redirect_to diaries_path
+    else
+      @diaries = Diary.all.order(params[:sort])
+      render :index
+    end
   end
 
   def update
@@ -36,7 +43,7 @@ class Public::DiariesController < ApplicationController
 
   private
   def diary_params
-    params.require(:post_image).permit(:image,:place, :result, :good, :bad)
+    params.require(:diary).permit(:image, :place, :result, :good, :bad)
   end
 
   def correct_diary_user
