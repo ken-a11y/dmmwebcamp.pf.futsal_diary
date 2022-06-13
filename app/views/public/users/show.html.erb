@@ -41,7 +41,6 @@
   <%= link_to diary_path(diary.id) do %>
     <%= image_tag diary.get_image %>
   <% end %>
-  <p>投稿画像：<%= image_tag 'no_img.jpg' %></p>
   <p>場所：<%= diary.place %></p>
   <p>結果：<%= diary.result %></p>
   <p>良かった点：<%= diary.good %></p>

@@ -22,7 +22,8 @@ class Public::DiariesController < ApplicationController
   def create
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
-    tag_list = params[:diary][:tag_name].split(',')
+    tags = Tag.find(params[:diary][:tag_ids].reject(&:blank?))
+    tag_list = params[:diary][:tag_name].split(',') + tags.pluck(:tag_name)
     if @diary.save
       @diary.save_tags(tag_list)
       redirect_to diaries_path
@@ -43,7 +44,7 @@ class Public::DiariesController < ApplicationController
 
   private
   def diary_params
-    params.require(:diary).permit(:image, :place, :result, :good, :bad)
+    params.require(:diary).permit(:image, :place, :result, :good, :bad, {:tag_ids => []})
   end
 
   def correct_diary_user
