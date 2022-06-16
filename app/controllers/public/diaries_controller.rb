@@ -3,7 +3,7 @@ class Public::DiariesController < ApplicationController
   before_action :correct_diary_user, only: [:edit, :update, :destroy]
 
   def index
-    @diaries = Diary.all.order(params[:sort])
+    @diaries = Diary.all.order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def show
@@ -12,6 +12,8 @@ class Public::DiariesController < ApplicationController
   end
 
   def edit
+    @diary = Diary.find(params[:id])
+    @tags = Tag.all
   end
 
   def new
@@ -26,14 +28,20 @@ class Public::DiariesController < ApplicationController
     tag_list = params[:diary][:tag_name].split(',') + tags.pluck(:tag_name)
     if @diary.save
       @diary.save_tags(tag_list)
-      redirect_to diaries_path
+      redirect_to diary_path(@diary)
     else
       @diaries = Diary.all.order(params[:sort])
-      render :index
+      render :new
     end
   end
 
   def update
+    if @diary.update(diary_params)
+      flash[:notice] = 'You have updated diary successfully.'
+      redirect_to diary_path(@diary)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -43,6 +51,7 @@ class Public::DiariesController < ApplicationController
   end
 
   private
+
   def diary_params
     params.require(:diary).permit(:image, :place, :result, :good, :bad, {:tag_ids => []})
   end

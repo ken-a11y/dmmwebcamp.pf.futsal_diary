@@ -1,0 +1,75 @@
+<table class="table">
+  <tr>
+    <th>icon</th>
+    <th><%= image_tag user.profile_image.variant(resize_to_limit: [50, 50]) %></th>
+  </tr>
+  <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>age</th>
+    <th><%= user.age %></th>
+  </tr>
+  <tr>
+    <th>number</th>
+    <th><%= user.number %></th>
+  </tr>
+  <tr>
+    <th>position</th>
+    <th><%= user.position %></th>
+  </tr>
+  <tr>
+    <th>speed_rate</th>
+    <th><div id="speed_rate_<%= user.id %>" class="form-group"></div></th>
+  </tr>
+  <tr>
+    <th>power_rate</th>
+    <th><div id="power_rate_<%= user.id %>" class="form-group"></div></th>
+  </tr>
+  <tr>
+    <th>tactics_rate</th>
+    <th><div id="tactics_rate_<%= user.id %>" class="form-group"></div></th>
+  </tr>
+</table>
+<div>
+  <% if user.id == current_user.id && user.name != "guestuser" %>
+    <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
+  <% end %>
+</div>
+
+
+<script>
+$(document).on('turbolinks:load', function() {
+  $('#speed_rate_<%= user.id %>').empty();
+  $('#speed_rate_<%= user.id %>').raty({
+    size: 20,
+    starOff:  '<%= asset_path("star-off.png") %>',
+    starOn : '<%= asset_path("star-on.png") %>',
+    starHalf: '<%= asset_path("star-half.png") %>',
+    half: true,
+    readOnly: true,
+    score: <%= user.speed_rate %>,
+  });
+  $('#power_rate_<%= user.id %>').empty();
+  $('#power_rate_<%= user.id %>').raty({
+    size: 20,
+    starOff:  '<%= asset_path("star-off.png") %>',
+    starOn : '<%= asset_path("star-on.png") %>',
+    starHalf: '<%= asset_path("star-half.png") %>',
+    half: true,
+    readOnly: true,
+    score: <%= user.power_rate %>,
+  });
+  $('#tactics_rate_<%= user.id %>').empty();
+  $('#tactics_rate_<%= user.id %>').raty({
+    size: 20,
+    starOff:  '<%= asset_path("star-off.png") %>',
+    starOn : '<%= asset_path("star-on.png") %>',
+    starHalf: '<%= asset_path("star-half.png") %>',
+    half: true,
+    readOnly: true,
+    score: <%= user.tactics_rate %>,
+  });
+});
+</script>

@@ -11,10 +11,10 @@ class Diary < ApplicationRecord
   validates :good, presence: true, length: {maximum: 200}
   validates :bad, presence: true, length: {maximum: 200}
 
-  def save_tags(savebook_tags)
+  def save_tags(savediary_tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
-    old_tags = current_tags - savebook_tags
-    new_tags = savebook_tags - current_tags
+    old_tags = current_tags - savediary_tags
+    new_tags = savediary_tags - current_tags
 
     old_tags.each do |old_name|
       self.tags.delete Tag.find_by(tag_name:old_name)
@@ -29,7 +29,7 @@ class Diary < ApplicationRecord
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_img.jpg')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'img/jpeg')
     end
     image
   end

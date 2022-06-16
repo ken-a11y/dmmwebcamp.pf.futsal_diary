@@ -10,7 +10,7 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li>
-            <%= link_to class: 'nav-link text-light' do %>
+            <%= link_to team_path(current_user.team), class: 'nav-link text-light' do %>
               <h3>Team</h3>
             <% end %>
           </li>

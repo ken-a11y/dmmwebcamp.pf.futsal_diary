@@ -1,5 +1,10 @@
- <div><%= flash[:out_notice] %></div>
+<div><%= flash[:out_notice] %></div>
 
 フットサルダイアリーはフットサルチームのための日記帳です<br>
 使うためにはチーム登録してください<br>
-次はユーザー登録してください。<br>
+次はユーザー登録してください。<br><br>
+
+試しに使う場合はゲストユーザーとしてログインしてください。
+<div class="row">
+  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm ml-3 sign_in", method: :post %>
+</div>

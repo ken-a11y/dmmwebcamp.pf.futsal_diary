@@ -1,13 +1,13 @@
 class Public::TeamsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:show, :edit, :update]
   before_action :ensure_correct_user, only: [:edit, :update]
-
-  def show
-    @team = Team.find(params[:id])
-  end
 
   def new
     @team =Team.new
+  end
+
+  def show
+    @team = Team.find(params[:id])
   end
 
   def edit
@@ -18,16 +18,13 @@ class Public::TeamsController < ApplicationController
     if @team.save
       redirect_to new_user_registration_path
     else
-      @team.errors.full_messages.each do |msg|
-        p msg
-      end
       render 'new'
     end
   end
 
   def update
     if @team.update(team_params)
-      redirect_to team_path
+      redirect_to team_path(@team)
     else
       render "edit"
     end
@@ -38,9 +35,9 @@ class Public::TeamsController < ApplicationController
   end
 
   def ensure_correct_user
-    @group = Group.find(params[:id])
-    unless @group.owner_id == current_user.id
-      redirect_to groups_path
+    @team = Team.find(params[:id])
+    unless @team.owner_id == current_user.id
+      redirect_to team_path(@team)
     end
   end
 

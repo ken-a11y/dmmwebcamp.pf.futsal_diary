@@ -1,50 +1,14 @@
-<table class="table">
-  <tr>
-    <th>name</th>
-    <th><%= @user.name %></th>
-  </tr>
-  <tr>
-    <th>age</th>
-    <th><%= @user.age %></th>
-  </tr>
-  <tr>
-    <th>number</th>
-    <th><%= @user.number %></th>
-  </tr>
-  <tr>
-    <th>position</th>
-    <th><%= @user.position %></th>
-  </tr>
-  <tr>
-    <th>speed_rate</th>
-    <th><%= @user.speed_rate %></th>
-  </tr>
-  <tr>
-    <th>power_rate</th>
-    <th><%= @user.power_rate %></th>
-  </tr>
-  <tr>
-    <th>tactics_rate</th>
-    <th><%= @user.tactics_rate %></th>
-  </tr>
-</table>
-<div>
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <%= render 'info', user: @user %>
+      <h2 class="mt-3">New diary</h2>
+      <p><%= link_to "新しく日記を投稿する", new_diary_path %></p>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Diaries</h2>
+      <%= render 'public/diaries/index',diaries: @diaries %>
+    </div>
+  </div>
 </div>
-
-<!-- ユーザーの投稿一覧 -->
-
-<% @diaries.each do |diary| %>
-<div>
-  <%= link_to diary_path(diary.id) do %>
-    <%= image_tag diary.get_image %>
-  <% end %>
-  <p>場所：<%= diary.place %></p>
-  <p>結果：<%= diary.result %></p>
-  <p>良かった点：<%= diary.good %></p>
-  <p>悪かった点：<%= diary.bad %></p>
-  <p><%= link_to "#{diary.diary_comments.count} コメント", diary_path(diary.id) %></p>
-</div>
-<% end %>

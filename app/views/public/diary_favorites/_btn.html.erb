@@ -1,0 +1,11 @@
+<% if diary.favorited_by?(current_user) %>
+  <%= link_to diary_diary_favorites_path(diary), method: :delete, remote: true do %>
+    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+    <%= diary.diary_favorites.count %> いいね
+  <% end %>
+<% else %>
+  <%= link_to diary_diary_favorites_path(diary), method: :post, remote: true do %>
+    <i class="fas fa-heart" aria-hidden="true"></i>
+    <%= diary.diary_favorites.count %> いいね
+  <% end %>
+<% end %>

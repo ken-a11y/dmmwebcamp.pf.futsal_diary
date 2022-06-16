@@ -1,8 +1,86 @@
-<h2>プロフィール編集</h2>
-<%= form_with model: @user do |f| %>
-  <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
-  <label for="inputImage">ProfileImage</label>
-# サークルスクエアのユーザー画像を参考にする
-  <%= f.submit "変更を保存" %>
-<% end %>
+# 星が表示されない
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>プロフィール編集</h2>
+      <%= form_with model:@user, local:true do |f| %>
+        <%= render 'layouts/errors', obj: @user %>
+        <div class="field">
+          <%= f.label :team_id %><br>
+          <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :team_name) %>
+        </div>
+
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :age %><br>
+          <%= f.number_field :age %>
+        </div>
+
+        <div class="field">
+          <%= f.label :number %><br>
+          <%= f.number_field :number %>
+        </div>
+
+        <div class="field">
+          <%= f.label :position %><br>
+          <%= f.select :position, [['ピヴォ','ピヴォ'], ['アラ','アラ'], ['フィクソ','フィクソ'], ['ゴレイロ','ゴレイロ']] %>
+        </div>
+
+        <%= f.label :speed_rate %>
+        <div class="form-group" id="speed_rate_<%= @user.id %>">
+        </div>
+        <%= f.label :power_rate %>
+        <div class="form-group" id="power_rate_<%= @user.id %>">
+        </div>
+        <%= f.label :tactics_rate %>
+        <div class="form-group" id="tactics_rate_<%= @user.id %>">
+        </div>
+
+        <script>
+        $(document).on('turbolinks:load', function() {
+          $('#speed_rate_<%= @user.id %>').empty();
+          $('#speed_rate_<%= @user.id %>').raty({
+            size: 20,
+            starOff:  '<%= asset_path("star-off.png") %>',
+            starOn : '<%= asset_path("star-on.png") %>',
+            starHalf: '<%= asset_path("star-half.png") %>',
+            half: true,
+            scoreName: 'user[speed_rate]',
+            score: <%= @user.speed_rate %>,
+          });
+          $('#power_rate_<%= @user.id %>').empty();
+          $('#power_rate_<%= @user.id %>').raty({
+            size: 20,
+            starOff:  '<%= asset_path("star-off.png") %>',
+            starOn : '<%= asset_path("star-on.png") %>',
+            starHalf: '<%= asset_path("star-half.png") %>',
+            half: true,
+            scoreName: 'user[power_rate]',
+            score: <%= @user.power_rate %>,
+          });
+          $('#tactics_rate_<%= @user.id %>').empty();
+          $('#tactics_rate_<%= @user.id %>').raty({
+            size: 20,
+            starOff:  '<%= asset_path("star-off.png") %>',
+            starOn : '<%= asset_path("star-on.png") %>',
+            starHalf: '<%= asset_path("star-half.png") %>',
+            half: true,
+
+            scoreName: 'user[tactics_rate]',
+            score: <%= @user.tactics_rate %>,
+          });
+        });
+        </script>
+
+        <div class="form-group">
+          <%= f.submit class:"btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

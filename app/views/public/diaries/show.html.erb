@@ -1,43 +1,33 @@
-<div>
-  <%= image_tag @diary.get_image %>
-  <p>場所：<%= @diary.place %></p>
-  <p>結果：<%= @diary.result %></p>
-  <p>良かった点：<%= @diary.good %></p>
-  <p>悪かった点：<%= @diary.bad %></p>
-  <p><%#= render "diaries/static_rate", diary: @diary %></p>
-  <p>投稿日：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @diary.user == current_user %>
-    <%= link_to "削除", diary_path(@diary), method: :delete %>
-  <% end %>
-  <% if @diary.favorited_by?(current_user) %>
-    <p>
-      <%= link_to diary_diary_favorites_path(@diary), method: :delete do %>
-        ♥<%= @diary.diary_favorites.count %> いいね
+<div class="container px-5 px-sm-0"  style="margin-top:75px;">
+  <div class="row justify-content-center my-4">
+    <h2>Diary detail</h2>
+    <div class="col-md-5 mr-5 text-center">
+      <%= image_tag @diary.get_image %>
+    </div>
+    <div class= "col-md-6 text-center">
+      <p>投稿日：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>
+      <p>場所：<%= @diary.place %></p>
+      <p>結果：<%= @diary.result %></p>
+      <p>良かった点：<%= @diary.good %></p>
+      <p>悪かった点：<%= @diary.bad %></p>
+      <% @diary.tags.each do |tag| %>
+        <li style="list-style: none;"><%= link_to tag.tag_name, search_path(word: tag.tag_name, range:"Tag", search: "perfect_match") %></li>
       <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to diary_diary_favorites_path(@diary), method: :post do %>
-        ♡<%= @diary.diary_favorites.count %> いいね
+      <% if @diary.user == current_user %>
+        <%= link_to "編集", edit_diary_path(@diary), class: "btn btn-sm btn-success edit_diary_#{@diary.id}" %>
+        <%= link_to "削除", diary_path(@diary), method: :delete, class: "btn btn-sm btn-danger destroy_diary_#{@diary.id}", "data-confirm" => "本当に削除しますか？" %>
       <% end %>
-    </p>
-  <% end %>
-</div>
-
-<div>
-  <p>コメント件数：<%= @diary.diary_comments.count %></p>
-  <% @diary.diary_comments.each do |diary_comment| %>
-    <%= diary_comment.user.name %>
-    <%= diary_comment.created_at.strftime('%Y/%m/%d') %>
-    <%= diary_comment.comment %>
-    <% if diary.user == current_user %>
-      <%= link_to "削除", diary_diary_comment_path(diary_comment.diary, diary_comment), method: :delete %>
-    <% end %>
-  <% end %>
-</div>
-<div>
-  <%= form_with model: [@diary, @diary_comment] do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
+    </div>
+    <div class=<%= "favorite-" + @diary.id.to_s %>>
+      <%= render "public/diary_favorites/btn", diary: @diary %>
+    </div>
+    <div class="diary-comments-counter">
+      <%= render "public/diary_comments/counter", diary: @diary %>
+    </div>
+    <%= render "layouts/errors", obj: @diary_comment %>
+    <%= render "public/diary_comments/form", diary: @diary, diary_comment: @diary_comment %>
+    <div class="diary-comments-index">
+      <%= render "public/diary_comments/index", diary: @diary %>
+    </div>
+  </div>
 </div>
