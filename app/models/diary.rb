@@ -37,4 +37,18 @@ class Diary < ApplicationRecord
   def favorited_by?(user)
     diary_favorites.exists?(user_id: user.id)
   end
+  
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @diary = Diary.where("place LIKE? OR good LIKE? OR bad LIKE?","#{word}")
+    elsif search == "forward_match"
+      @diary = Diary.where("place LIKE? OR good LIKE? OR bad LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @diary = Diary.where("place LIKE? OR good LIKE? OR bad LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @diary = Diary.where("place LIKE? OR good LIKE? OR bad LIKE?","%#{word}%")
+    else
+      @diary = Diary.all
+    end
+  end
 end

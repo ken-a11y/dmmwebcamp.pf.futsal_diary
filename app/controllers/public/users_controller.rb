@@ -40,7 +40,7 @@ class Public::UsersController < ApplicationController
     reset_session
     redirect_to root_path, flash: {out_notice: "ありがとうございました。またのご利用をお待ちしております"}
   end
-  
+
   def favorites
     @user = User.find(params[:id])
     favorites= DiaryFavorite.where(user_id: @user.id).pluck(:diary_id)

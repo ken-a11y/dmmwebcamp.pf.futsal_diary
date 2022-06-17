@@ -1,5 +1,6 @@
 <div class="container px-5 px-sm-0">
   <h2>Diaries</h2>
     <p><%=link_to"お気に入り記事",favorites_user_path(@user) %></p>
+    <%= render 'public/searches/form' %>
     <%= render 'index', diaries: @diaries %>
 </div>

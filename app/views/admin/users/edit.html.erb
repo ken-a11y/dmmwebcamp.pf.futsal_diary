@@ -74,18 +74,9 @@
           });
         });
         </script>
-        
-        <div class="row mt-5">
-          <div class="col-md-6 ml-3 text-center">
-            <%= button_tag(type: "submit", class:"btn btn-secondary") do %>
-              <i class="fas fa-star"></i> 編集内容を保存
-            <% end %>
-          </div>
-          <div class="col-md-5 text-center">
-            <%= link_to users_quit_path, class:"btn btn-secondary" do %>
-              <i class="fas fa-sad-tear"></i> 退会する
-            <% end %>
-          </div>
+
+        <div class="form-group">
+          <%= f.submit class:"btn btn-secondary" %>
         </div>
       <% end %>
     </div>
