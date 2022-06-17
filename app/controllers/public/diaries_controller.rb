@@ -4,6 +4,7 @@ class Public::DiariesController < ApplicationController
 
   def index
     @diaries = Diary.all.order(created_at: :desc).page(params[:page]).per(8)
+    @user = current_user
   end
 
   def show
