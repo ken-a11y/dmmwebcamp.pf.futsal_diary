@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index,:show,:edit,:update]
+    resources :teams, only: [:index,:show,:edit,:update]
     resources :diaries, only: [:index,:show,:edit,:update] do
       resources :diary_comments, only: [:destroy]
     end
