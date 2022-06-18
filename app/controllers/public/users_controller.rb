@@ -6,7 +6,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @diaries = @user.diaries
+    @diaries = @user.diaries.order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def edit
@@ -20,14 +20,6 @@ class Public::UsersController < ApplicationController
     else
       render :edit
     end
-  end
-
-# チームに加入する
-  def create
-  end
-
-# チームから脱退する
-  def destroy
   end
 
   def quit

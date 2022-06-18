@@ -1,1 +1,24 @@
-admin/チーム一覧
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th>Members</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @teams.each do |team| %>
+          <tr>
+            <td><%= image_tag team.get_team_image %></td>
+            <td><%= link_to team.team_name, admin_team_path(team), class: "team_#{team.id}" %></td>
+            <td><%= team.users.count %></td>
+            <td><%= link_to 'Edit', edit_admin_team_path(team), class: "team_#{team.id} btn btn-sm btn-success" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table> 
+  </div>
+</div>

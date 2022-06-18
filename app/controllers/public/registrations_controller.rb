@@ -6,6 +6,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
   after_action :create_user_icon, only: [:create]
 
   def after_sign_up_path_for(resource)
+    @user = User.where(team_id: current_user.team_id)
+    @team = Team.find(current_user.team_id)
+    if @user.length == 1
+      @team.update(owner_id: current_user.id)
+    end
     user_path(current_user)
   end
 

@@ -24,15 +24,3 @@ Tag.create!(
     {tag_name: "タグ3"},
   ]
 )
-
-tactic1 = Tactic.create!(
-  description: '相手が前プレスしている時に使える戦術です'
-)
-tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Alacorta1.jpg')),
-                  filename: 'Alacorta1.jpg')
-tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Alacorta2.jpg')),
-                  filename: 'Alacorta2.jpg')
-tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Alacorta3.jpg')),
-                  filename: 'Alacorta3.jpg')
-tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Alacorta4.jpg')),
-                  filename: 'Alacorta4.jpg')

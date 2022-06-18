@@ -1,0 +1,27 @@
+<div>
+  <h2>Team Detail</h2>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Introduction</th>
+            <th>Members</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tr>
+          <td><%= image_tag @team.get_team_image %></td>
+          <td><%= @team.team_name %></td>
+          <td><%= @team.introduction %></td>
+          <td>
+            <%= render 'admin/users/index',users: @users %>
+          </td>
+          <td>
+            <%= link_to 'Edit', edit_admin_team_path(@team), class: "btn btn-sm btn-success" %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

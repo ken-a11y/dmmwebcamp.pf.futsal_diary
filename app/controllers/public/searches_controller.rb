@@ -5,9 +5,9 @@ class Public::SearchesController < ApplicationController
     @word = params[:word]
     @range = params[:range]
     @search = params[:search]
-    
 
-    if @range == "diary"
+
+    if @range == "Diary"
       @records = Diary.looks(@search, @word)
     elsif @range == "Tag"
       @records = Tag.looks(@search, @word)

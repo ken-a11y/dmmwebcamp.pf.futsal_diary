@@ -17,8 +17,5 @@ class Team < ApplicationRecord
   def is_owned_by?(user)
     owner.id == user.id
   end
-  
-  def includesUser?(user)
-    team_users.exists?(user_id: user.id)
-  end
+
 end
