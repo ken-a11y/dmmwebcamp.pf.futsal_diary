@@ -1,7 +1,7 @@
 class Admin::TeamsController < ApplicationController
+
   def index
     @teams =Team.all
-    
   end
 
   def show
@@ -10,6 +10,7 @@ class Admin::TeamsController < ApplicationController
   end
 
   def edit
+    @team = Team.find(params[:id])
   end
 
   def update
@@ -18,5 +19,9 @@ class Admin::TeamsController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def team_params
+    params.require(:team).permit(:team_name, :introduction, :team_image)
   end
 end

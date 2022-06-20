@@ -1,3 +1,4 @@
 class Tactic < ApplicationRecord
-  has_many :tactics, dependent: :destroy
+  has_one_attached :tactic_image
+  has_many :tactic_items, dependent: :destroy
 end

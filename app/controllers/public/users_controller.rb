@@ -36,7 +36,7 @@ class Public::UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
     favorites= DiaryFavorite.where(user_id: @user.id).pluck(:diary_id)
-    @favorite_diaries = Diary.find(favorites)
+    @favorite_diaries = Diary.where(id: favorites).page(params[:page]).per(8)
   end
 
   private

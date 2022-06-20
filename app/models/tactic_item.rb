@@ -1,4 +1,4 @@
 class TacticItem < ApplicationRecord
-  has_many_attached :tactic_image
+  has_one_attached :tactic_image
   belongs_to :tactic
 end

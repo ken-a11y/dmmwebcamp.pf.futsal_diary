@@ -29,14 +29,14 @@ Rails.application.routes.draw do
       resources :diary_comments, only: [:create,:destroy]
       resource :diary_favorites, only: [:create,:destroy]
     end
-    resources :tactics, only: [:index]
-    get 'tactic', to: 'tactics#show'
+    resources :tactics, only: [:index, :show]
   end
 
   namespace :admin do
+    get "search" => "searches#search"
     resources :users, only: [:index,:show,:edit,:update]
     resources :teams, only: [:index,:show,:edit,:update]
-    resources :diaries, only: [:index,:show,:edit,:update] do
+    resources :diaries, only: [:index,:show,:edit,:update,:destroy] do
       resources :diary_comments, only: [:destroy]
     end
   end

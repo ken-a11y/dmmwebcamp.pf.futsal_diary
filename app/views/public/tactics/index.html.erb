@@ -1,0 +1,6 @@
+<% @tactics.each do |tactic| %>
+  <%= link_to tactic_path(tactic.id) do %>
+    <%= image_tag tactic.tactic_image %>
+    <%= tactic.title %>
+  <% end %>
+<% end %>

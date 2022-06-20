@@ -11,6 +11,7 @@ class Public::TeamsController < ApplicationController
   end
 
   def edit
+    @team = Team.find(params[:id])
   end
 
   def create
@@ -23,6 +24,7 @@ class Public::TeamsController < ApplicationController
   end
 
   def update
+    @team = Team.find(params[:id])
     if @team.update(team_params)
       redirect_to team_path(@team)
     else

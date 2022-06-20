@@ -1,0 +1,2 @@
+$('.diary-comments-counter').html("<%= escape_javascript(render partial: 'admin/diary_comments/counter', locals: {diary: @comment.diary}) %>");
+$('.diary-comments-index').html("<%= escape_javascript(render partial: 'admin/diary_comments/index', locals: {diary: @comment.diary}) %>")
