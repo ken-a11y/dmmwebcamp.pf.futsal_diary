@@ -37,9 +37,15 @@ user1 = User.create!(
 
 Tag.create!(
   [
-    {tag_name: "タグ1"},
-    {tag_name: "タグ2"},
-    {tag_name: "タグ3"},
+    {tag_name: "Alacorta"},
+    {tag_name: "Diagonal"},
+    {tag_name: "Entre"},
+    {tag_name: "L"},
+    {tag_name: "Onetwo"},
+    {tag_name: "Pararella"},
+    {tag_name: "Pivoala"},
+    {tag_name: "Pivoate"},
+    {tag_name: "Redondo"},
   ]
 )
 
@@ -53,7 +59,9 @@ tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ala
                   filename: 'Alacorta1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "アラコルタ説明文1",
+   description: "①フィクソはバックステップでパスを受ける位置に移動する\n\n
+                 ◇左アラが相手選手3をドリブルで抜けないときに発動する\n
+                 ◇フィクソはバックステップすることで相手選手2とのスペースを空ける",
    tactic_id: tactic1.id
    )
 
@@ -61,7 +69,8 @@ tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ala
                   filename: 'Alacorta1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "アラコルタ説明文2",
+   description: "②左アラはフィクソにパスを出し、中央へ走る\n\n
+                 ◇左アラは速く走ると相手選手2に隠れてしまうので、ゆっくり走る",
    tactic_id: tactic1.id
    )
 
@@ -69,7 +78,8 @@ tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ala
                   filename: 'Alacorta2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "アラコルタ説明文3",
+   description: "③フィクソは中央へ走る左アラにパスを出す\n\n
+                 ◇左アラは足裏でなめるようにトラップして、シュートできる位置にボールを置く",
    tactic_id: tactic1.id
    )
 
@@ -77,7 +87,7 @@ tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ala
                   filename: 'Alacorta3.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "アラコルタ説明文4",
+   description: "",
    tactic_id: tactic1.id
    )
   tactic_item.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Alacorta4.jpg')),
@@ -93,7 +103,9 @@ tactic2.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Dia
                   filename: 'Diagonal1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ディアゴナル説明文1",
+   description: "①フィクソは左アラにパスを出し、中央のスペースに走り出す\n\n
+                 ◇ピヴォがコート左側にいて、コート右側のスペースが空いているときに発動できる\n
+                 ◇フィクソは相手の裏を取ることで視線を外す",
    tactic_id: tactic2.id
    )
 
@@ -101,7 +113,8 @@ tactic2.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Dia
                   filename: 'Diagonal1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ディアゴナル説明文2",
+   description: "②フィクソは走る向きを変えて、コート右側のスペースに走る\n\n
+                 ◇フィクソは相手の視線が外れたタイミングで走る向きを変える",
    tactic_id: tactic2.id
    )
 
@@ -109,7 +122,8 @@ tactic2.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Dia
                   filename: 'Diagonal2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ディアゴナル説明文3",
+   description: "③左アラからフィクソにパスを送る\n\n
+                 ◇左アラは中にドリブルすることでフィクソへのパスコースを作る",
    tactic_id: tactic2.id
    )
 
@@ -117,7 +131,7 @@ tactic2.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Dia
                   filename: 'Diagonal3.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ディアゴナル説明文4",
+   description: "",
    tactic_id: tactic2.id
    )
   tactic_item.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Diagonal4.jpg')),
@@ -133,7 +147,16 @@ tactic3.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ent
                   filename: 'Entre1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "エントレ説明文1",
+   description: "①フィクソは左アラにパスを出し、中央のスペースに走る\n\n
+                 ◇相手選手2と相手選手3の間をポジショニングできるよう意識する",
+   tactic_id: tactic3.id
+   )
+
+  tactic_item.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Entre2.jpg')),
+                  filename: 'Entre1.jpg')
+
+ tactic_item = TacticItem.create!(
+   description: "②左アラはフィクソにパスを出す",
    tactic_id: tactic3.id
    )
 
@@ -141,15 +164,7 @@ tactic3.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ent
                   filename: 'Entre2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "エントレ説明文2",
-   tactic_id: tactic3.id
-   )
-
-  tactic_item.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Entre2.jpg')),
-                  filename: 'Entre2.jpg')
-
- tactic_item = TacticItem.create!(
-   description: "エントレ説明文3",
+   description: "",
    tactic_id: tactic3.id
    )
 
@@ -166,7 +181,8 @@ tactic4.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/L1.
                   filename: 'L1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "エル説明文1",
+   description: "①フィクソは左アラにパスを出し、ピヴォは同サイドに走る\n\n
+                 ◇ピヴォは最初から左サイドにいた場合、相手選手5がついてくるので、パスが出たタイミングで動く",
    tactic_id: tactic4.id
    )
 
@@ -174,7 +190,7 @@ tactic4.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/L1.
                   filename: 'L1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "エル説明文2",
+   description: "②左アラはピヴォにパスを出し、中央のピヴォが空けたスペースに走る",
    tactic_id: tactic4.id
    )
 
@@ -182,7 +198,7 @@ tactic4.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/L1.
                   filename: 'L2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "エル説明文3",
+   description: "",
    tactic_id: tactic4.id
    )
 
@@ -199,7 +215,8 @@ tactic5.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/One
                   filename: 'Onetwo1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ワンツー説明文1",
+   description: "①左アラは右アラにパスを出し、パスを受けに近付く\n\n
+                 ◇右アラと相手選手4の距離感が近いときに発動する",
    tactic_id: tactic5.id
    )
 
@@ -207,7 +224,7 @@ tactic5.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/One
                   filename: 'Onetwo1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ワンツー説明文2",
+   description: "②右アラは左アラにリターンパスを出し、相手選手4を追い越す",
    tactic_id: tactic5.id
    )
 
@@ -215,7 +232,7 @@ tactic5.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/One
                   filename: 'Onetwo2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ワンツー説明文3",
+   description: "③左アラは右アラが前線に上がったタイミングでパスを出す",
    tactic_id: tactic5.id
    )
 
@@ -223,7 +240,7 @@ tactic5.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/One
                   filename: 'Onetwo3.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ワンツー説明文4",
+   description: "",
    tactic_id: tactic5.id
    )
   tactic_item.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Onetwo4.jpg')),
@@ -240,7 +257,9 @@ tactic6.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Par
                   filename: 'Pararella1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "パラレラ説明文1",
+   description: "①左アラは右アラにパスを出し、コート右側の空いたスペースに走り込む\n\n
+                 ◇相手選手4が中央へのパスコースを切っていて、縦へのパスコースが空いてる時に発動する\n
+                 ◇左アラは斜めに走るのではなく、徐々に斜めへの角度を強めて走ることを意識する",
    tactic_id: tactic6.id
    )
 
@@ -248,7 +267,7 @@ tactic6.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Par
                   filename: 'Pararella1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "パラレラ説明文2",
+   description: "②右アラから左アラへ縦パスを出す",
    tactic_id: tactic6.id
    )
 
@@ -256,7 +275,7 @@ tactic6.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Par
                   filename: 'Pararella2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "パラレラ説明文3",
+   description: "",
    tactic_id: tactic6.id
    )
 
@@ -274,7 +293,9 @@ tactic7.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Piv
                   filename: 'Pivoala1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ピヴォアラ説明文1",
+   description: "①左アラとピヴォがポジションチェンジをする\n\n
+                 ◇フィクソがボールの出しどころに困っているときに発動する\n
+                 ◇アラはピヴォの位置がコート左側に寄っている事を確認して中に入る",
    tactic_id: tactic7.id
    )
 
@@ -282,7 +303,8 @@ tactic7.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Piv
                   filename: 'Pivoala1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ピヴォアラ説明文2",
+   description: "②外に張り出したピヴォにパスを出す\n\n
+                 ◇フィクソはピヴォがマーカーと対峙するためのスペースを作るため、強いパスを出す",
    tactic_id: tactic7.id
    )
 
@@ -290,7 +312,7 @@ tactic7.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Piv
                   filename: 'Pivoala2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ピヴォアラ説明文3",
+   description: "",
    tactic_id: tactic7.id
    )
 
@@ -308,7 +330,7 @@ tactic8.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Piv
                   filename: 'Pivoate1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ピヴォ当て説明文1",
+   description: "①フィクソは左アラにパスを出す",
    tactic_id: tactic8.id
    )
 
@@ -316,7 +338,7 @@ tactic8.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Piv
                   filename: 'Pivoate1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ピヴォ当て説明文2",
+   description: "②左アラはピヴォにパスを当てて、落としを受けるため、ピヴォの近くまで走る",
    tactic_id: tactic8.id
    )
 
@@ -324,7 +346,7 @@ tactic8.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Piv
                   filename: 'Pivoate2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "ピヴォ当て説明文3",
+   description: "",
    tactic_id: tactic8.id
    )
 
@@ -342,7 +364,7 @@ tactic9.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Red
                   filename: 'Redondo1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "へドンド説明文1",
+   description: "①右アラがフィクソにパスを出し、同時に全員が旋回するように回る",
    tactic_id: tactic9.id
    )
 
@@ -350,7 +372,7 @@ tactic9.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Red
                   filename: 'Redondo1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "へドンド説明文2",
+   description: "②フィクソはピヴォまたは右アラにパスを出す",
    tactic_id: tactic9.id
    )
 
@@ -358,7 +380,7 @@ tactic9.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Red
                   filename: 'Redondo2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "へドンド説明文3",
+   description: "",
    tactic_id: tactic9.id
    )
 

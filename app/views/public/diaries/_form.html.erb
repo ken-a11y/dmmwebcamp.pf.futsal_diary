@@ -26,7 +26,7 @@
   <div class="form-group">
       <%# 推奨タグ3個を表示 %>
       <div class="check-box">
-        <%= collection_check_boxes(:diary, :tag_ids, tags.limit(3), :id, :tag_name) do |b| %>
+        <%= collection_check_boxes(:diary, :tag_ids, tags.limit(9), :id, :tag_name) do |b| %>
         <%= b.label { b.check_box + b.text } %>
         <% end %>
       </div>

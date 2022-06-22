@@ -1,6 +1,10 @@
-<% @tactics.each do |tactic| %>
-  <%= link_to tactic_path(tactic.id) do %>
-    <%= image_tag tactic.tactic_image %>
-    <%= tactic.title %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-between">
+    <% @tactics.each do |tactic| %>
+      <%= link_to tactic_path(tactic.id) do %>
+        <div class = "mx-3"><%= image_tag tactic.get_tactic_image(400,400) %></div>
+        <div class = "text-center text-dark mb-5"><%= tactic.title %></div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
