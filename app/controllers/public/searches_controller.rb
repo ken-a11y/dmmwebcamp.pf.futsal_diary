@@ -8,9 +8,9 @@ class Public::SearchesController < ApplicationController
 
 
     if @range == "Diary"
-      @records = Diary.looks(@search, @word)
+      @records = Diary.looks(@search, @word).order(created_at: :desc).page(params[:page]).per(8)
     elsif @range == "Tag"
-      @records = Tag.looks(@search, @word)
+      @records = Tag.looks(@search, @word).order(created_at: :desc).page(params[:page]).per(8)
     end
   end
 end

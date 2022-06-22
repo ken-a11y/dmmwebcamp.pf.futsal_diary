@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @diaries = @user.diaries
+    @diaries = @user.diaries.order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def edit
