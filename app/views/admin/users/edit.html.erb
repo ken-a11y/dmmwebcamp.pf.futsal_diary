@@ -74,6 +74,13 @@
           });
         });
         </script>
+        
+        <div>
+          <%= f.radio_button :is_deleted, "有効" %>
+          <%= f.label :is_deleted, "有効", class: "m-0" %>
+          <%= f.radio_button :is_deleted, "退会" %>
+          <%= f.label :is_deleted, "退会", class: "m-0" %>
+        </div>
 
         <div class="form-group">
           <%= f.submit class:"btn btn-secondary" %>
