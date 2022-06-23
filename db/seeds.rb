@@ -33,6 +33,16 @@ user1 = User.create!(
                   filename: 'icon_00.png')
 
   team1.update!(owner_id: user1.id)
+  
+  diary1 = Diary.create!(
+    user_id: 1,
+    place: '清水ヶ丘公園体育館',
+    result: 'WIN',
+    good: 'フィクソがバックステップでスペースを空ける動きが良かった',
+    bad: '左アラが中に入るタイミング早かったため、パスを出せなかった'
+  )
+  diary1.image.attach(io: File.open(Rails.root.join('app/assets/images/diary_image1.jpg')),
+                  filename: 'diary_image1.jpg')
 
 
 Tag.create!(
@@ -48,6 +58,11 @@ Tag.create!(
     {tag_name: "Redondo"},
   ]
 )
+
+  TacticTag.create!(
+    diary_id: 1,
+    tag_id: 1,
+  )
 
 
 # Alacorta
