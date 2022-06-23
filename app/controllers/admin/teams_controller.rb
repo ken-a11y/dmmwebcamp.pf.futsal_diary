@@ -6,7 +6,7 @@ class Admin::TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @users = User.all
+    @users = @team.users
   end
 
   def edit
@@ -20,7 +20,7 @@ class Admin::TeamsController < ApplicationController
       render "edit"
     end
   end
-  
+
   def destroy
     @team = Team.find(params[:id])
     @team.destroy
