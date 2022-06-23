@@ -59,8 +59,8 @@ tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ala
                   filename: 'Alacorta1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "①フィクソはバックステップでパスを受ける位置に移動する\n\n
-                 ◇左アラが相手選手3をドリブルで抜けないときに発動する\n
+   description: "①フィクソはバックステップでパスを受ける位置に移動する\n
+                 ◇左アラが相手選手3をドリブルで抜けないときに発動する
                  ◇フィクソはバックステップすることで相手選手2とのスペースを空ける",
    tactic_id: tactic1.id
    )
@@ -69,7 +69,7 @@ tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ala
                   filename: 'Alacorta1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "②左アラはフィクソにパスを出し、中央へ走る\n\n
+   description: "②左アラはフィクソにパスを出し、中央へ走る\n
                  ◇左アラは速く走ると相手選手2に隠れてしまうので、ゆっくり走る",
    tactic_id: tactic1.id
    )
@@ -78,7 +78,7 @@ tactic1.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ala
                   filename: 'Alacorta2.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "③フィクソは中央へ走る左アラにパスを出す\n\n
+   description: "③フィクソは中央へ走る左アラにパスを出す\n
                  ◇左アラは足裏でなめるようにトラップして、シュートできる位置にボールを置く",
    tactic_id: tactic1.id
    )
@@ -103,8 +103,8 @@ tactic2.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Dia
                   filename: 'Diagonal1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "①フィクソは左アラにパスを出し、中央のスペースに走り出す\n\n
-                 ◇ピヴォがコート左側にいて、コート右側のスペースが空いているときに発動できる\n
+   description: "①フィクソは左アラにパスを出し、中央のスペースに走り出す\n
+                 ◇ピヴォがコート左側にいて、コート右側のスペースが空いているときに発動できる
                  ◇フィクソは相手の裏を取ることで視線を外す",
    tactic_id: tactic2.id
    )
@@ -113,7 +113,7 @@ tactic2.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Dia
                   filename: 'Diagonal1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "②フィクソは走る向きを変えて、コート右側のスペースに走る\n\n
+   description: "②フィクソは走る向きを変えて、コート右側のスペースに走る\n
                  ◇フィクソは相手の視線が外れたタイミングで走る向きを変える",
    tactic_id: tactic2.id
    )
@@ -147,7 +147,7 @@ tactic3.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Ent
                   filename: 'Entre1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "①フィクソは左アラにパスを出し、中央のスペースに走る\n\n
+   description: "①フィクソは左アラにパスを出し、中央のスペースに走る\n
                  ◇相手選手2と相手選手3の間をポジショニングできるよう意識する",
    tactic_id: tactic3.id
    )
@@ -181,7 +181,7 @@ tactic4.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/L1.
                   filename: 'L1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "①フィクソは左アラにパスを出し、ピヴォは同サイドに走る\n\n
+   description: "①フィクソは左アラにパスを出し、ピヴォは同サイドに走る\n
                  ◇ピヴォは最初から左サイドにいた場合、相手選手5がついてくるので、パスが出たタイミングで動く",
    tactic_id: tactic4.id
    )
@@ -215,7 +215,7 @@ tactic5.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/One
                   filename: 'Onetwo1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "①左アラは右アラにパスを出し、パスを受けに近付く\n\n
+   description: "①左アラは右アラにパスを出し、パスを受けに近付く\n
                  ◇右アラと相手選手4の距離感が近いときに発動する",
    tactic_id: tactic5.id
    )
@@ -257,8 +257,8 @@ tactic6.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Par
                   filename: 'Pararella1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "①左アラは右アラにパスを出し、コート右側の空いたスペースに走り込む\n\n
-                 ◇相手選手4が中央へのパスコースを切っていて、縦へのパスコースが空いてる時に発動する\n
+   description: "①左アラは右アラにパスを出し、コート右側の空いたスペースに走り込む\n
+                 ◇相手選手4が中央へのパスコースを切っていて、縦へのパスコースが空いてる時に発動する
                  ◇左アラは斜めに走るのではなく、徐々に斜めへの角度を強めて走ることを意識する",
    tactic_id: tactic6.id
    )
@@ -293,8 +293,8 @@ tactic7.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Piv
                   filename: 'Pivoala1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "①左アラとピヴォがポジションチェンジをする\n\n
-                 ◇フィクソがボールの出しどころに困っているときに発動する\n
+   description: "①左アラとピヴォがポジションチェンジをする\n
+                 ◇フィクソがボールの出しどころに困っているときに発動する
                  ◇アラはピヴォの位置がコート左側に寄っている事を確認して中に入る",
    tactic_id: tactic7.id
    )
@@ -303,7 +303,7 @@ tactic7.tactic_image.attach(io: File.open(Rails.root.join('app/assets/images/Piv
                   filename: 'Pivoala1.jpg')
 
  tactic_item = TacticItem.create!(
-   description: "②外に張り出したピヴォにパスを出す\n\n
+   description: "②外に張り出したピヴォにパスを出す\n
                  ◇フィクソはピヴォがマーカーと対峙するためのスペースを作るため、強いパスを出す",
    tactic_id: tactic7.id
    )

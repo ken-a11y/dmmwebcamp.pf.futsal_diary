@@ -26,12 +26,12 @@ class Diary < ApplicationRecord
     end
   end
 
-  def get_image
+  def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_img.jpg')
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'img/jpeg')
     end
-    image
+    image.variant(resize_to_fit: [width, height]).processed
   end
 
   def favorited_by?(user)

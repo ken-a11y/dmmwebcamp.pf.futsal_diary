@@ -2,7 +2,7 @@
   <div class="row justify-content-center my-4">
     <h2>Diary detail</h2>
     <div class="col-md-5 mr-5 text-center">
-      <%= image_tag @diary.get_image %>
+      <%= image_tag @diary.get_image(200,200) %>
     </div>
     <div class= "col-md-6 text-center">
       <p>投稿日：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>

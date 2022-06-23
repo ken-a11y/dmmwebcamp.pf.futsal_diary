@@ -25,6 +25,11 @@
         <div class="actions">
           <%= f.submit "Log in", class: "btn btn-sm btn-primary" %>
         </div>
+      
+        <div class="actions my-3">
+          <%= link_to 'Log in（guest）', users_guest_sign_in_path, class: "btn btn-primary btn-sm sign_in", method: :post %>
+        </div>
+        
       <% end %>
       <%= render "public/shared/links" %>
     </div>

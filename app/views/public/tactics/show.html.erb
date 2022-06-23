@@ -2,7 +2,7 @@
   <div class="row justify-content-between">
     <% @tactic.tactic_items.each do |tactic_item| %>
       <div class="col-md-5 text-center mb-4"><%= image_tag tactic_item.get_tactic_image(400,400) %></div>
-      <div class="col-md-6 mb-4"><%= tactic_item.description.gsub(/\n/, "<br>") %></div>
+      <div class="col-md-6 mb-4"><%= simple_format(tactic_item.description.gsub(/\n/, "<br>")) %></div>
     <% end %>
   </div>
 </div>
