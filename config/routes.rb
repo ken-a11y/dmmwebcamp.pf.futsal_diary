@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "search" => "searches#search"
     resources :users, only: [:index,:show,:edit,:update]
-    resources :teams, only: [:index,:show,:edit,:update]
+    resources :teams, only: [:index,:show,:edit,:update, :destroy]
     resources :diaries, only: [:index,:show,:edit,:update,:destroy] do
       resources :diary_comments, only: [:destroy]
     end

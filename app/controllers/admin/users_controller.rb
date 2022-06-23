@@ -35,6 +35,6 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:team_id, :name, :age, :number, :position, :speed_rate, :power_rate, :tactics_rate)
+    params.require(:user).permit(:team_id, :name, :age, :number, :position, :speed_rate, :power_rate, :tactics_rate, :is_deleted)
   end
 end
