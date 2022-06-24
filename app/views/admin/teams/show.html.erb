@@ -19,7 +19,7 @@
   </table>
   <div class="row mt-3">
     <% @users.each do |user| %>
-    <div class="col-2 text-center">
+    <div class="col-sm-4 col-md-3 text-center">
       <div class="card-list-container">
         <div class="card mt-4 shadow-lg">
           <%= link_to admin_user_path(user) do %>
