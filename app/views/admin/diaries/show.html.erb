@@ -15,8 +15,8 @@
           <%= link_to tag.tag_name, admin_search_path(word: tag.tag_name, range:"Tag", search: "perfect_match") %>
         <% end %>
       </li>
-      <%= link_to "編集", edit_admin_diary_path(@diary), class: "btn btn-sm btn-success edit_diary_#{@diary.id} mt-4" %>
-      <%= link_to "削除", admin_diary_path(@diary), method: :delete, class: "btn btn-sm btn-danger destroy_diary_#{@diary.id} mt-4" %>
+      <%= link_to "Edit", edit_admin_diary_path(@diary), class: "btn btn-sm btn-success edit_diary_#{@diary.id} mt-4" %>
+      <%= link_to "Destroy", admin_diary_path(@diary), method: :delete, class: "btn btn-sm btn-danger destroy_diary_#{@diary.id} mt-4 ml-4" %>
     </div>
     <div class="col-md-3" style="margin-top:90px;">
       <div class=<%= "favorite-" + @diary.id.to_s %>>
