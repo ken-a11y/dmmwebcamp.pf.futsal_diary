@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tr>
-      <td><%= image_tag @team.get_team_image %></td>
+      <td><%= image_tag @team.get_team_image(100,100) %></td>
       <td><%= @team.team_name %></td>
       <td><%= @team.introduction %></td>
       <td><%= link_to 'Edit', edit_admin_team_path(@team), class: "btn btn-sm btn-success" %></td>

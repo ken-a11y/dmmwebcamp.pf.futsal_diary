@@ -6,12 +6,12 @@ class Team < ApplicationRecord
   validates :team_name, presence: true
   validates :introduction, presence: true
 
-  def get_team_image
+  def get_team_image(width, height)
     unless team_image.attached?
       file_path = Rails.root.join('app/assets/images/no_img.jpg')
       team_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    team_image.variant(resize_to_limit: [100, 100]).processed
+    team_image.variant(resize_to_limit: [width, height]).processed
   end
 
   def is_owned_by?(user)
