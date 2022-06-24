@@ -1,4 +1,36 @@
 <div class="container px-5 px-sm-0">
   <h2>Diaries search for <%= @word %></h2>
-  <%= render "public/diaries/index", diaries: @records %>
+  <table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>投稿日</th>
+      <th>投稿者</th>
+      <th>タグ</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @records.each do |diary| %>
+      <tr>
+        <td>
+          <%= link_to diary_path(diary.id) do %>
+            <%= image_tag diary.get_image(50, 50) %>
+          <% end %>
+        </td>
+        <td><%= diary.created_at.strftime('%Y/%m/%d') %></td>
+        <td><%= diary.user.name %></td>
+        <td>
+          <% diary.tags.each do |tag| %>
+            <li style="list-style: none;"><%= link_to tag.tag_name, search_path(word: tag.tag_name, range:"Tag", search: "perfect_match") %></li>
+          <% end %>
+        </td>
+        <td class=<%= "favorite-" + diary.id.to_s %>>
+          <%= render "public/diary_favorites/btn", diary: diary %>
+        </td>
+        <td><%= render "public/diary_comments/counter", diary: diary %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>

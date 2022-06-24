@@ -1,33 +1,37 @@
-<div class="container px-5 px-sm-0"  style="margin-top:75px;">
-  <div class="row justify-content-center my-4">
-    <h2>Diary detail</h2>
-    <div class="col-md-5 mr-5 text-center">
-      <%= image_tag @diary.get_image(200,200) %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-4">
+    <h2 class="mb-5">Diary detail</h2>
+      <%= image_tag @diary.get_image(400,400) %>
     </div>
-    <div class= "col-md-6 text-center">
+    <div class= "col-md-4 offset-1" style="margin-top:90px;">
       <p>投稿日：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>
       <p>場所：<%= @diary.place %></p>
       <p>結果：<%= @diary.result %></p>
       <p>良かった点：<%= @diary.good %></p>
       <p>悪かった点：<%= @diary.bad %></p>
-      <% @diary.tags.each do |tag| %>
-        <li style="list-style: none;"><%= link_to tag.tag_name, search_path(word: tag.tag_name, range:"Tag", search: "perfect_match") %></li>
-      <% end %>
+      <li style="list-style: none;">タグ : 
+        <% @diary.tags.each do |tag| %>
+          <%= link_to tag.tag_name, search_path(word: tag.tag_name, range:"Tag", search: "perfect_match") %>
+        <% end %>
+      </li>
       <% if @diary.user == current_user %>
-        <%= link_to "編集", edit_diary_path(@diary), class: "btn btn-sm btn-success edit_diary_#{@diary.id}" %>
-        <%= link_to "削除", diary_path(@diary), method: :delete, class: "btn btn-sm btn-danger destroy_diary_#{@diary.id}", "data-confirm" => "本当に削除しますか？" %>
+        <%= link_to "編集", edit_diary_path(@diary), class: "btn btn-sm btn-success edit_diary_#{@diary.id} mt-4" %>
+        <%= link_to "削除", diary_path(@diary), method: :delete, class: "btn btn-sm btn-danger destroy_diary_#{@diary.id} mt-4", "data-confirm" => "本当に削除しますか？" %>
       <% end %>
     </div>
-    <div class=<%= "favorite-" + @diary.id.to_s %>>
-      <%= render "public/diary_favorites/btn", diary: @diary %>
-    </div>
-    <div class="diary-comments-counter">
-      <%= render "public/diary_comments/counter", diary: @diary %>
-    </div>
-    <%= render "layouts/errors", obj: @diary_comment %>
-    <%= render "public/diary_comments/form", diary: @diary, diary_comment: @diary_comment %>
-    <div class="diary-comments-index">
-      <%= render "public/diary_comments/index", diary: @diary %>
+    <div class="col-md-3" style="margin-top:90px;">
+      <div class=<%= "favorite-" + @diary.id.to_s %>>
+        <%= render "public/diary_favorites/btn", diary: @diary %>
+      </div>
+      <div class="diary-comments-counter">
+        <%= render "public/diary_comments/counter", diary: @diary %>
+      </div>
+      <%= render "layouts/errors", obj: @diary_comment %>
+      <%= render "public/diary_comments/form", diary: @diary, diary_comment: @diary_comment %>
+      <div class="diary-comments-index">
+        <%= render "public/diary_comments/index", diary: @diary %>
+      </div>
     </div>
   </div>
 </div>

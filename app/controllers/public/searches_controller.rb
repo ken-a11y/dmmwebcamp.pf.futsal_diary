@@ -10,7 +10,8 @@ class Public::SearchesController < ApplicationController
     if @range == "Diary"
       @records = Diary.looks(@search, @word).order(created_at: :desc).page(params[:page]).per(8)
     elsif @range == "Tag"
-      @records = Tag.looks(@search, @word).order(created_at: :desc).page(params[:page]).per(8)
+      # タグが配列となっているため、ページネーションが
+      @records = Tag.looks(@search, @word).sort_by(&:created_at).reverse
     end
   end
 end

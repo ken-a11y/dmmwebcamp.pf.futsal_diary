@@ -14,10 +14,11 @@ class Admin::TeamsController < ApplicationController
   end
 
   def update
+    @team = Team.find(params[:id])
     if @team.update(team_params)
-      redirect_to team_path(@team)
+      redirect_to admin_team_path(@team)
     else
-      render "edit"
+      render :edit
     end
   end
 
