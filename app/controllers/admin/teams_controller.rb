@@ -6,7 +6,7 @@ class Admin::TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @users = @team.users
+    @users = @team.users.where(is_deleted: false)
   end
 
   def edit
