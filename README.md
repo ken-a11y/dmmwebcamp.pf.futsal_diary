@@ -17,7 +17,8 @@
 
 ## 設計書
 ### ER図鑑
-![futsal_diary Diagram](https://user-images.githubusercontent.com/81537553/171998446-2de7102f-9f2b-4753-8f67-963ff48148fd.jpg)
+![futsal_diary Diagram drawio](https://user-images.githubusercontent.com/81537553/175751741-fd8eccb9-c0ec-48b7-a5a5-238855d6ff2a.png)
+
 ### アプリケーション詳細設計
 ![futsal_diary-アプリケーション詳細設計 xlsx-ルーティング](https://user-images.githubusercontent.com/81537553/171999732-538a91ef-ef09-4fd9-bdc1-c5ec330fc852.jpg)
 
