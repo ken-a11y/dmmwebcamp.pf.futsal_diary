@@ -19,7 +19,6 @@
 ### ER図鑑
 ![futsal_diary Diagram drawio](https://user-images.githubusercontent.com/81537553/175751741-fd8eccb9-c0ec-48b7-a5a5-238855d6ff2a.png)
 ### アプリケーション詳細設計
-[futsal_diary アプリケーション詳細設計.xlsx - ルーティング (1).pdf](https://github.com/ken-a11y/dmmwebcamp.pf.futsal_diary/files/8983683/futsal_diary.xlsx.-.1.pdf)
 ![futsal_diary アプリケーション詳細設計 xlsx - ルーティング (1)_page-0001](https://user-images.githubusercontent.com/81537553/175753751-f72b8f5a-dc2f-4daf-909b-c0c2eadd1ed8.jpg)
 
 
