@@ -1,67 +1,63 @@
 <p class="notice"><%= flash[:notice] %></p>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
-
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>Sign up</h2>
-
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
 
 
 
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="form-group row">
+          <div class="col-4"><%= f.label :email %></div>
+          <div class="col-4"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
         </div>
 
-        <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br>
-          <%= f.password_field :password, autocomplete: "new-password" %>
+        <div class="form-group row">
+          <div class="col-4"><%= f.label :password %></div>
+          <div class="col-4"><%= f.password_field :password, autocomplete: "new-password" %></div>
+        </div>
+  
+        <div class="form-group row">
+          <div class="col-4"><%= f.label :team_id %></div>
+          <div class="col-4"><%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :team_name) %></div>
         </div>
 
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <div class="form-group row">
+          <div class="col-4"><%= f.label :name %></div>
+          <div class="col-4"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></div>
         </div>
 
-        <div class="field">
-          <%= f.label :team_id %><br>
-          <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :team_name) %>
+        <div class="form-group row">
+          <div class="col-4"><%= f.label :age %></div>
+          <div class="col-4"><%= f.number_field :age %></div>
         </div>
 
-      <div class="field">
-          <%= f.label :name %><br>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <div class="form-group row">
+          <div class="col-4"><%= f.label :number %></div>
+          <div class="col-4"><%= f.number_field :number %></div>
         </div>
 
-        <div class="field">
-          <%= f.label :age %><br>
-          <%= f.number_field :age %>
-        </div>
-
-        <div class="field">
-          <%= f.label :number %><br>
-          <%= f.number_field :number %>
-        </div>
-
-        <div class="field">
-          <%= f.label :position %><br>
-          <%= f.select :position, [['ピヴォ','ピヴォ'], ['アラ','アラ'], ['フィクソ','フィクソ'], ['ゴレイロ','ゴレイロ']] %>
+        <div class="form-group row">
+          <div class="col-4"><%= f.label :position %></div>
+          <div class="col-4"><%= f.select :position, [['ピヴォ','ピヴォ'], ['アラ','アラ'], ['フィクソ','フィクソ'], ['ゴレイロ','ゴレイロ']] %></div>
         </div>
 
         <% if @user.id === nil %>
-          <%= f.label :speed_rate %>
-          <div class="form-group" id="star">
+          <div class="form-group row">
+            <div class="col-4"><%= f.label :speed_rate %></div>
+            <div class="col-4" id="star">
+            </div>
           </div>
-          <%= f.label :power_rate %>
-          <div class="form-group" id="star2">
+          <div class="form-group row">
+            <div class="col-4"><%= f.label :power_rate %></div>
+            <div class="col-4" id="star2">
+            </div>
           </div>
-          <%= f.label :tactics_rate %>
-          <div class="form-group" id="star3">
+          <div class="form-group row">
+            <div class="col-4"><%= f.label :tactics_rate %></div>
+            <div class="col-4" id="star3">
+            </div>
           </div>
 
           <script>
@@ -99,12 +95,11 @@
           <%= render "users/static_rate", user: @user %>
         <% end %>
 
-        <div class="actions">
-          <%= f.submit "Sign up" %>
+        <div class="form-group row">
+          <div class="col-6 mr-4"></div>
+          <div class="col-5"><%= f.submit 'Sign up', class: "btn btn-info" %></div>
         </div>
       <% end %>
-
-      <%= render "public/shared/links" %>
 
     </div>
   </div>
