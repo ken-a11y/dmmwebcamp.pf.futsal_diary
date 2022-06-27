@@ -1,2 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+@media screen and (max-width:768px) {
+  
+  .media-pc {
+    display: none;
+  }
+}

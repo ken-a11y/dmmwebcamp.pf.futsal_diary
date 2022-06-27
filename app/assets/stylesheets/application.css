@@ -13,10 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-@media screen and (max-width:768px) {
-  
-  .media-pc {
-    display: none;
-  }
-}
