@@ -48,6 +48,7 @@
             starOn : '<%= asset_path("star-on.png") %>',
             starHalf: '<%= asset_path("star-half.png") %>',
             half: true,
+            readOnly: false,
             scoreName: 'user[speed_rate]',
             score: <%= @user.speed_rate %>,
           });
@@ -58,6 +59,7 @@
             starOn : '<%= asset_path("star-on.png") %>',
             starHalf: '<%= asset_path("star-half.png") %>',
             half: true,
+            readOnly: false,
             scoreName: 'user[power_rate]',
             score: <%= @user.power_rate %>,
           });
@@ -68,7 +70,7 @@
             starOn : '<%= asset_path("star-on.png") %>',
             starHalf: '<%= asset_path("star-half.png") %>',
             half: true,
-
+            readOnly: false,
             scoreName: 'user[tactics_rate]',
             score: <%= @user.tactics_rate %>,
           });
