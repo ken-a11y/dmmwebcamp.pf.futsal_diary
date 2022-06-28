@@ -6,7 +6,7 @@
         <%= render 'layouts/errors', obj: @user %>
         <div class="field">
           <%= f.label :team_id %><br>
-          <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :team_name) %>
+          <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :team_name, @user.team_id) %>
         </div>
 
         <div class="field">
