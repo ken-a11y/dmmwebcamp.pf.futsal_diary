@@ -14,7 +14,13 @@ class Public::UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
+      @users = User.where(team_id: @user.team_id)
+      if @users.length == 1
+        @team = Team.find(@user.team_id)
+        @team.update(owner_id: @user.id)
+      end
       flash[:notice] = 'You have updated user successfully.'
       redirect_to user_path(@user)
     else
