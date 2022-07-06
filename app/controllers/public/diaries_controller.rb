@@ -24,12 +24,23 @@ class Public::DiariesController < ApplicationController
 
   def create
     @diary = Diary.new(diary_params)
+    # 自然言語
+    @diary.score1 = Language.get_data(diary_params[:good])
+    @diary.score2 = Language.get_data(diary_params[:bad])
     @diary.user_id = current_user.id
     tags = Tag.find(params[:diary][:tag_ids].reject(&:blank?))
     tag_list = params[:diary][:tag_name].split(',') + tags.pluck(:tag_name)
     if @diary.save
-      @diary.save_tags(tag_list)
-      redirect_to diary_path(@diary)
+      # 画像認識
+      safe_search = Vision.get_image_data(@diary.image)
+      if safe_search.include?("LIKELY")
+        flash[:notice] = '不適切画像は投稿できません'
+        @diary.destroy
+        redirect_to diaries_path
+      else
+        @diary.save_tags(tag_list)
+        redirect_to diary_path(@diary)
+      end
     else
       @diaries = Diary.all.order(params[:sort])
       render :new

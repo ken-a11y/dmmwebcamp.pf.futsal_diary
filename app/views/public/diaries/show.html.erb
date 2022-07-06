@@ -8,8 +8,10 @@
       <p>投稿日：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>
       <p>場所：<%= @diary.place %></p>
       <p>結果：<%= @diary.result %></p>
-      <p>良かった点：<%= @diary.good %></p>
-      <p>悪かった点：<%= @diary.bad %></p>
+      <p>良かった点：<span class="sentiment-score"><%= @diary.score1 %></span></p>
+      <p><%= @diary.good %></p>
+      <p>悪かった点：<span class="sentiment-score"><%= @diary.score2 %></span></p>
+      <p><%= @diary.bad %></p>
       <li style="list-style: none;">タグ : 
         <% @diary.tags.each do |tag| %>
           <%= link_to tag.tag_name, search_path(word: tag.tag_name, range:"Tag", search: "perfect_match") %>
