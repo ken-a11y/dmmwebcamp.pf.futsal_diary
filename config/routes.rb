@@ -23,7 +23,10 @@ Rails.application.routes.draw do
         get :favorites
       end
     end
-    resources :teams, only: [:show,:new,:edit,:create,:update]
+    resources :teams, only: [:show,:new,:edit,:create,:update] do
+      resources :event_notices, only: [:new, :create]
+      get "event_notices" => "event_notices#sent"
+    end
     resources :diaries do
       resources :diary_comments, only: [:create,:destroy]
       resource :diary_favorites, only: [:create,:destroy]
