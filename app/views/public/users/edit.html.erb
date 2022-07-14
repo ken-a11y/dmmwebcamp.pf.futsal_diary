@@ -6,7 +6,11 @@
         <%= render 'layouts/errors', obj: @user %>
         <div class="field">
           <%= f.label :team_id %><br>
-          <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :team_name, @user.team_id) %>
+          <% if @user == @team.owner %>
+            <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :team_name, @user.team_id), {}, disabled: true %>
+          <% else %>
+            <%= f.select :team_id, options_from_collection_for_select(Team.all, :id, :team_name, @user.team_id) %>
+          <% end %>
         </div>
 
         <div class="field">

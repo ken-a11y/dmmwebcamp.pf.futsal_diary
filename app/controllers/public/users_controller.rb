@@ -11,6 +11,7 @@ class Public::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @team = Team.find(@user.team_id)
   end
 
   def update
@@ -34,9 +35,14 @@ class Public::UsersController < ApplicationController
 
   def out
     @user = current_user
-    @user.update(is_deleted: "退会") #ここでis_deletedカラムの値を"退会"に更新
-    reset_session
-    redirect_to root_path, flash: {out_notice: "ありがとうございました。またのご利用をお待ちしております"}
+    @team = Team.find(@user.team_id)
+    if @user == @team.owner
+      redirect_to team_path(@team), flash: {notice: "チームオーナーの変更をお願い致します"}
+    else
+      @user.update(is_deleted: "退会") #ここでis_deletedカラムの値を"退会"に更新
+      reset_session
+      redirect_to root_path, flash: {out_notice: "ありがとうございました。またのご利用をお待ちしております"}
+    end
   end
 
   def favorites
