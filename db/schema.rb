@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2022_07_03_041430) do
     t.string "bad"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.decimal "score", precision: 5, scale: 3
     t.decimal "score1", precision: 5, scale: 3
     t.decimal "score2", precision: 5, scale: 3
   end

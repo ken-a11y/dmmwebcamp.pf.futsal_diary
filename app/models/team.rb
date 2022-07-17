@@ -2,7 +2,7 @@ class Team < ApplicationRecord
   has_one_attached :team_image
   belongs_to :owner, optional: true, class_name: 'User'
   has_many :users
-  
+
   validates :team_name, presence: true
   validates :introduction, presence: true
 

@@ -32,8 +32,23 @@ user1 = User.create!(
   user1.profile_image.attach(io: File.open(Rails.root.join('app/assets/images/icon_00.png')),
                   filename: 'icon_00.png')
 
-  team1.update!(owner_id: user1.id)
-  
+user2 = User.create!(
+  name: 'guestuser',
+  team_id: 1,
+  age: "37",
+  number: "10",
+  position: "ピヴォ",
+  speed_rate: "5",
+  power_rate: "5",
+  tactics_rate: "5",
+  email: 'guest@example.com',
+  password: SecureRandom.urlsafe_base64
+  )
+  user2.profile_image.attach(io: File.open(Rails.root.join('app/assets/images/icon_00.png')),
+                  filename: 'icon_00.png')
+
+  team1.update!(owner_id: user2.id)
+
   diary1 = Diary.create!(
     user_id: 1,
     place: '清水ヶ丘公園体育館',
