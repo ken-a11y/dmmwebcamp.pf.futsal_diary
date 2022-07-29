@@ -1,6 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+.diary_icon {
+  display: inline-block;
+  margin-right: 30px;
+  background-color: #fff;
+  border: 1px solid #888;
+  color: #888;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
 @media screen and (max-width:768px) {
   
   .media-pc {
