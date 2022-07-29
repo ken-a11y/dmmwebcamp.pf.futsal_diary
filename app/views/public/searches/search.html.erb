@@ -1,13 +1,16 @@
 <div class="container px-5 px-sm-0">
-  <h2>Diaries search for <%= @word %></h2>
+  <h2 class="mb-4">Diaries search for <%= @word %></h2>
   <table class='table table-hover table-inverse'>
   <thead>
     <tr>
       <th></th>
       <th>投稿日</th>
       <th>投稿者</th>
-      <th>タグ</th>
-      <th colspan="2"></th>
+      <th class="media-pc">タグ</th>
+      <th>いいね</th>
+      <th class="media-pc">コメント</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +23,7 @@
         </td>
         <td><%= diary.created_at.strftime('%Y/%m/%d') %></td>
         <td><%= diary.user.name %></td>
-        <td>
+        <td class="media-pc">
           <% diary.tags.each do |tag| %>
             <li style="list-style: none;"><%= link_to tag.tag_name, search_path(word: tag.tag_name, range:"Tag", search: "perfect_match") %></li>
           <% end %>
@@ -28,7 +31,11 @@
         <td class=<%= "favorite-" + diary.id.to_s %>>
           <%= render "public/diary_favorites/btn", diary: diary %>
         </td>
-        <td><%= render "public/diary_comments/counter", diary: diary %></td>
+        <td class="media-pc"><%= render "public/diary_comments/counter", diary: diary %></td>
+        <% if diary.user == current_user %>
+          <td class="media-pc"><%= link_to "Edit", edit_diary_path(diary), class: "btn btn-sm btn-success edit_diary_#{diary.id}" %></td>
+          <td class="media-pc"><%= link_to "Destroy", diary_path(diary), method: :delete, class: "btn btn-sm btn-danger destroy_diary_#{diary.id} ml-4", "data-confirm" => "本当に削除しますか？" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -20,7 +20,8 @@
     </div>
     <div class="col-lg-3" style="margin-top:90px;">
       <div class=<%= "favorite-" + @diary.id.to_s %>>
-        <%= @diary.diary_favorites.count %> いいね
+        <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+        <%= @diary.diary_favorites.count %>
       </div>
       <div class="diary-comments-counter">
         <%= render "admin/diary_comments/counter", diary: @diary %>

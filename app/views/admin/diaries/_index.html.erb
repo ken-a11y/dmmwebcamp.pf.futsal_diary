@@ -5,7 +5,10 @@
       <th>投稿日</th>
       <th>投稿者</th>
       <th class="media-pc">タグ</th>
-      <th colspan="2"></th>
+      <th>いいね</th>
+      <th class="media-pc">コメント</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -24,9 +27,12 @@
           <% end %>
         </td>
         <td class=<%= "favorite-" + diary.id.to_s %>>
-          <%= diary.diary_favorites.count %> いいね
+          <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+          <%= diary.diary_favorites.count %>
         </td>
         <td class="media-pc"><%= render "admin/diary_comments/counter", diary: diary %></td>
+        <td class="media-pc"><%= link_to "Edit", edit_diary_path(diary), class: "btn btn-sm btn-success edit_diary_#{diary.id}" %></td>
+        <td class="media-pc"><%= link_to "Destroy", diary_path(diary), method: :delete, class: "btn btn-sm btn-danger destroy_diary_#{diary.id} ml-4", "data-confirm" => "本当に削除しますか？" %></td>
       </tr>
     <% end %>
   </tbody>
