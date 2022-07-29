@@ -21,7 +21,9 @@ class Public::DiariesController < ApplicationController
     @diary = Diary.new
     @tags = Tag.all
   end
-
+  
+  
+#よりシンプルな記述ができないか?
   def create
     @diary = Diary.new(diary_params)
     # 自然言語
@@ -31,12 +33,17 @@ class Public::DiariesController < ApplicationController
     tags = Tag.find(params[:diary][:tag_ids].reject(&:blank?))
     tag_list = params[:diary][:tag_name].split(',') + tags.pluck(:tag_name)
     if @diary.save
-      # 画像認識
-      safe_search = Vision.get_image_data(@diary.image)
-      if safe_search.include?("LIKELY")
-        flash[:notice] = '不適切画像は投稿できません'
-        @diary.destroy
-        redirect_to diaries_path
+      if @diary.image.attached?
+        # 画像認識
+        safe_search = Vision.get_image_data(@diary.image)
+        if safe_search.include?("LIKELY")
+          flash[:notice] = '不適切画像は投稿できません'
+          @diary.destroy
+          redirect_to diaries_path
+        else
+          @diary.save_tags(tag_list)
+          redirect_to diary_path(@diary)
+        end
       else
         @diary.save_tags(tag_list)
         redirect_to diary_path(@diary)
