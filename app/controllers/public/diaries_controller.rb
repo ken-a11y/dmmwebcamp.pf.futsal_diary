@@ -22,8 +22,6 @@ class Public::DiariesController < ApplicationController
     @tags = Tag.all
   end
   
-  
-#よりシンプルな記述ができないか?
   def create
     @diary = Diary.new(diary_params)
     # 自然言語

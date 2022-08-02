@@ -38,7 +38,6 @@ class Diary < ApplicationRecord
     diary_favorites.exists?(user_id: user.id)
   end
 
-#後方検索が機能していない?
   def self.looks(search, word)
     if search == "perfect_match"
       @diary = Diary.where("bad LIKE?","#{word}").or(Diary.where("good LIKE?","#{word}"))
