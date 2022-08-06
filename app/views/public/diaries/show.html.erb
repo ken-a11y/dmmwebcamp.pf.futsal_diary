@@ -5,14 +5,20 @@
       <%= image_tag @diary.get_image(400,400) %>
     </div>
     <div class= "col-lg-4 offset-lg-1" style="margin-top:90px;">
-      <p>投稿日：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>
-      <p>場所：<%= @diary.place %></p>
-      <p>結果：<%= @diary.result %></p>
-      <p>良かった点：<span class="sentiment-score"><%= @diary.score1 %></span></p>
-      <p><%= @diary.good %></p>
-      <p>悪かった点：<span class="sentiment-score"><%= @diary.score2 %></span></p>
-      <p><%= @diary.bad %></p>
-      <li style="list-style: none;">タグ : 
+      <p><u>投稿日</u><br><%= @diary.created_at.strftime('%Y/%m/%d') %></p>
+      <p><u>場所</u><br><%= @diary.place %></p>
+      <p><u>結果</u><br><%= @diary.result %></p>
+      <p>
+        <u>良かった点</u><br>
+        <%= @diary.good %><br>
+        <span class="sentiment-score"><%= @diary.score1 %></span>
+      </p>
+      <p>
+        <u>悪かった点</u><br>
+        <%= @diary.bad %><br>
+        <span class="sentiment-score"><%= @diary.score2 %></span>
+      </p>
+      <li style="list-style: none;"><u>タグ</u><br>
         <% @diary.tags.each do |tag| %>
           <%= link_to tag.tag_name, search_path(word: tag.tag_name, range:"Tag", search: "perfect_match") %>
         <% end %>

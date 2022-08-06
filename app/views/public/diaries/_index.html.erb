@@ -33,6 +33,9 @@
         <% if diary.user == current_user %>
           <td class="media-pc"><%= link_to "Edit", edit_diary_path(diary), class: "btn btn-sm btn-success edit_diary_#{diary.id}" %></td>
           <td class="media-pc"><%= link_to "Destroy", diary_path(diary), method: :delete, class: "btn btn-sm btn-danger destroy_diary_#{diary.id} ml-4", "data-confirm" => "本当に削除しますか？" %></td>
+        <% else %>
+          <td></td>
+          <td></td>
         <% end %>
       </tr>
     <% end %>
