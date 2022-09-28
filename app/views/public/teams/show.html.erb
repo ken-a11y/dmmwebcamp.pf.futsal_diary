@@ -16,7 +16,7 @@
         <td>
           <% if @team.is_owned_by?(current_user) %>
             <%= link_to 'Edit', edit_team_path(@team), class: "btn btn-sm btn-success" %>
-            <%= link_to 'Notice an Event', new_team_event_notice_path(@team), class: "btn btn-sm btn-info mt-1 mt-lg-0 ml-lg-4" %>
+            <%= link_to 'Notice', new_team_event_notice_path(@team), class: "btn btn-sm btn-info mt-1 mt-lg-0 ml-lg-4" %>
           <% end %>
         </td>
       </tr>
